@@ -15,8 +15,8 @@ RUN pip install --no-cache-dir Flask \
     && pip install --no-cache-dir pandas \
     && pip install --no-cache-dir numpy \
     && pip install --no-cache-dir scikit-learn \
-    && pip install --no-cache-dir torchvision
-
+    && pip install --no-cache-dir torchvision \
+    && pip install --no-cache-dir gunicorn 
 # Копируем оставшиеся файлы приложения в контейнер
 COPY . /app
 
