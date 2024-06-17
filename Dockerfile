@@ -4,6 +4,7 @@ FROM python:3.9-slim
 # Устанавливаем зависимости
 RUN apt-get update && apt-get install -y \
     libsndfile1 \
+    python3-distutils \
     && apt-get clean
 
 # Копируем requirements.txt и устанавливаем зависимости
