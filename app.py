@@ -57,4 +57,4 @@ def predict_route():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))  # Используйте переменную окружения PORT
-    app.run(host='0.0.0.0', port=port)        # Установите host на '0.0.0.0'
+    app.run(debug=True, host='0.0.0.0', port=port)        # Установите host на '0.0.0.0'
