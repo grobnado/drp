@@ -1,7 +1,7 @@
 # Используем базовый образ Python
-FROM python:3-dev
+FROM python:3.9-buster
 
-# Устанавливаем зависимости
+# Устанавливаем системные зависимости
 RUN apt-get update && apt-get install -y \
     libsndfile1 \
     python3-distutils \
