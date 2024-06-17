@@ -21,7 +21,7 @@ RUN pip install --no-cache-dir Flask \
 COPY . /app
 
 # Устанавливаем порт, который будет использоваться приложением
-ENV PORT=5000
+ENV PORT=80
 
 # Запускаем приложение
 CMD ["python", "app.py"]
