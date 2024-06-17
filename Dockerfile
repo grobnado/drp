@@ -1,17 +1,24 @@
-# Используем базовый образ Python
-FROM python:3.9
+# Используем более легкий базовый образ Python
+FROM python:3.9-slim
 
 # Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копируем файлы приложения в контейнер
+# Копируем только requirements.txt для установки зависимостей
+COPY requirements.txt .
+
+# Устанавливаем зависимости по одному, чтобы избежать проблем с ресурсами
+RUN pip install --no-cache-dir Flask \
+    && pip install --no-cache-dir flask-cors \
+    && pip install --no-cache-dir torch \
+    && pip install --no-cache-dir librosa \
+    && pip install --no-cache-dir pandas \
+    && pip install --no-cache-dir numpy \
+    && pip install --no-cache-dir scikit-learn \
+    && pip install --no-cache-dir torchvision
+
+# Копируем оставшиеся файлы приложения в контейнер
 COPY . /app
-
-# Устанавливаем зависимости
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Копируем файл весов модели
-COPY models/trained_model.pth /app/models/trained_model.pth
 
 # Устанавливаем порт, который будет использоваться приложением
 ENV PORT=5000
