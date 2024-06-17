@@ -1,0 +1,10 @@
+flask
+flask-cors
+torch
+librosa
+pydub
+numpy
+os
+pandas
+sklearn
+torchvision
